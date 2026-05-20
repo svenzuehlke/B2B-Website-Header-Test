@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeyJobs Phone</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: transparent;
+    }
+
+    /* Outer wrapper — phone + flyout together */
+    .scene {
+      position: relative;
+      display: inline-block;
+      width: 580px;
+      height: 580px;
+      isolation: isolate;
+    }
+
+    /* Canvas sized to match actual screen pixel area, then matrix3d maps it in */
+    #sc {
+      position: absolute;
+      top: 0; left: 0;
+      width: 436px;
+      height: 970px;
+      transform-origin: 0 0;
+      transform: matrix3d(0.52162882,-0.00627719,0,-0.00004962,-0.25421972,0.49016949,0,-0.00005082,0,0,1,0,267.29,22.04,0,1);
+      border-radius: 42px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Phone PNG above canvas */
+    .phone-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Flyout — absolute over the phone, right side, vertically centered */
+    .flyout {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      padding: 26px 30px;
+      width: 255px;
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.10),
+        0 4px 16px rgba(0,0,0,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.55;
+      color: #181A22;
+      animation: fl 5s ease-in-out infinite;
+      z-index: 5;
+    }
+    @keyframes fl {
+      0%,100% { transform: translateY(-50%) translateY(0); }
+      50%      { transform: translateY(-50%) translateY(-10px); }
+    }
+    .flyout .hl {
+      color: #D02879;
+      text-decoration: underline;
+      text-decoration-color: #D02879;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="scene">
+  <canvas id="sc" width="436" height="970"></canvas>
+  <img class="phone-img" src="https://res.cloudinary.com/heyjobs/image/upload/v1779290064/marketing/smartphone.avif" crossorigin="anonymous" alt="">
+  <div class="flyout">
+    Wir finden passive<br>
+    Kandidat:innen, die<br>
+    <span class="hl">nicht aktiv</span> suchen!
+  </div>
+</div>
+
+<script>
+const cv = document.getElementById('sc');
+const C  = cv.getContext('2d');
+const TW = 436, TH = 970;
+
+// Scale all measurements up from 390-base by 436/390
+const SC = TW / 390;
+
+const logoImg = new Image();
+const logoSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="116" height="32" fill="none" viewBox="0 0 116 32"><path fill="#D02879" fill-rule="evenodd" d="M67.47 21.69c2.42 0 3.9-1.83 3.9-5.25s-1.48-5.25-3.9-5.25c-2.45 0-3.94 1.83-3.94 5.25s1.49 5.25 3.94 5.25m0 4.14c-5.9 0-9.46-3.9-9.46-9.4 0-5.48 3.55-9.39 9.46-9.39 5.87 0 9.43 3.9 9.43 9.4 0 5.49-3.56 9.4-9.43 9.4z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M91.94 16.44c0-3.46-1.38-5.25-3.63-5.25-2.24 0-3.62 1.8-3.62 5.25s1.38 5.25 3.62 5.25c2.25 0 3.63-1.8 3.63-5.25m5.53 0c0 5.8-3 9.4-7.7 9.4a6.6 6.6 0 0 1-5.12-2.32h-.07v1.76h-5.52V.58h5.52v8.78h.07a6.6 6.6 0 0 1 5.11-2.32c4.7 0 7.7 3.6 7.7 9.4z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M115.68 20.06c0 3.73-2.83 5.77-7.74 5.77-6.32 0-8.73-2.83-8.9-6.42h5.17c.18 1.76 1.35 2.62 3.53 2.62 1.55 0 2.42-.51 2.42-1.52 0-1.52-1.66-1.72-4.46-2.35-3-.65-6.32-1.76-6.32-5.45 0-3.21 2.76-5.67 7.74-5.67 5.66 0 7.87 2.87 8.04 5.98h-5.18c-.17-1.42-.93-2.18-2.73-2.18-1.55 0-2.34.55-2.34 1.42 0 1.24 1.1 1.28 3.83 1.86 3.49.76 6.94 1.94 6.94 5.94" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M27.26 14.54h7.2c0-2.46-1.48-3.7-3.6-3.7-2.11 0-3.6 1.24-3.6 3.7m6.97 5.41h5.5c-.96 3.57-3.74 5.93-8.55 5.93-5.9 0-9.47-3.88-9.47-9.43 0-5.4 3.5-9.43 9.15-9.43 6.07 0 9.15 4.44 9.15 10.89H27.26c0 2.5 1.84 3.8 3.81 3.8 1.9 0 2.8-.9 3.16-1.76" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M52.87 3c0-1.6 1.21-2.46 2.77-2.46s2.77.87 2.77 2.46c0 1.63-1.2 2.46-2.77 2.46-1.56 0-2.77-.83-2.77-2.46" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M47.75 16.2 45.1 7.57h-5.54l5.73 15.03s1.33-3.1 2.47-6.42z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="m52.55 7.58-2.22 7.68c-.54 2.2-2.4 9.13-5.03 11.18-.64.7-1.8.83-3.19.51h-.07v4.16c1.15.24 2.15.35 3.09.35 3.74 0 5.4-1.25 6.93-5.79l6.03-18.1h-5.54z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M5.57.59v9.67h8.39V.59h5.53v24.7h-5.53v-9.95H5.57v9.95H.04V.59z" clip-rule="evenodd"/></svg>`;
+logoImg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(logoSVG);
+
+const JOBS = [
+  { title:'Pflegefachkraft (m/w/d)', co:'Soziales Netz gGmbH',
+    ini:'SN', col:'#e31e24', loc:'Brandenburg', typ:'Vollzeit',
+    sal:'3.710–4.500 €/Mo.', tags:['Schichtzulagen','36 Urlaubstage','Kein Lebenslauf'] },
+  { title:'Lagerlogistik (m/w/d)', co:'Logistik Partner AG',
+    ini:'LP', col:'#4751B2', loc:'Berlin · Tempelhof', typ:'Vollzeit',
+    sal:'16–18 €/Std.', tags:['Frühschicht','Staplerschein','Sofortstart'] },
+  { title:'Reinigungskraft (m/w/d)', co:'Facility Services GmbH',
+    ini:'FS', col:'#059669', loc:'Berlin · Mitte', typ:'Teilzeit',
+    sal:'13–15 €/Std.', tags:['Flexible Zeiten','Kein Lebenslauf','Einarbeitung'] },
+];
+
+let cur=0, nxt=1, inT=false, tS=0, lastS=performance.now();
+const HOLD=3400, FADE=500;
+
+function s(v){ return v * SC; } // scale helper
+
+function rr(x,y,w,h,r){
+  C.beginPath();
+  C.moveTo(x+r,y); C.lineTo(x+w-r,y); C.quadraticCurveTo(x+w,y,x+w,y+r);
+  C.lineTo(x+w,y+h-r); C.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  C.lineTo(x+r,y+h); C.quadraticCurveTo(x,y+h,x,y+h-r);
+  C.lineTo(x,y+r); C.quadraticCurveTo(x,y,x+r,y);
+  C.closePath();
+}
+
+function drawJob(j, a) {
+  C.save(); C.globalAlpha = a;
+
+  // BG
+  C.fillStyle='#fff'; C.fillRect(0,0,TW,TH);
+
+  // Status bar
+  C.fillStyle='#181A22';
+  C.font=`bold ${s(22)}px sans-serif`;
+  C.fillText('9:41', s(26), s(52));
+  for(let i=0;i<4;i++){
+    C.fillStyle='#181A22';
+    C.fillRect(TW-s(50)+i*s(10), s(43)-(s(6)+i*s(4)), s(7), s(6)+i*s(4));
+  }
+
+  // Logo
+  if(logoImg.complete && logoImg.naturalWidth>0){
+    C.drawImage(logoImg, s(22), s(70), s(110), s(34));
+  } else {
+    C.font=`bold ${s(28)}px IBM Plex Sans,sans-serif`;
+    C.fillStyle='#181A22'; C.fillText('Hey', s(22), s(108));
+    C.fillStyle='#F5B100'; C.fillText('Jobs', s(76), s(108));
+  }
+
+  // Search bar
+  C.fillStyle='#F0F1F5';
+  rr(s(20), s(120), TW-s(40), s(44), s(12)); C.fill();
+  C.fillStyle='#9EA3B3';
+  C.font=`${s(16)}px IBM Plex Sans,sans-serif`;
+  C.fillText('🔍  Job suchen …', s(36), s(147));
+
+  // Card bg
+  C.fillStyle='#fff';
+  rr(s(16), s(182), TW-s(32), TH-s(200), s(20)); C.fill();
+
+  // Company logo
+  C.fillStyle=j.col;
+  rr(s(26), s(198), s(50), s(50), s(10)); C.fill();
+  C.fillStyle='#fff';
+  C.font=`bold ${s(18)}px sans-serif`;
+  C.textAlign='center'; C.fillText(j.ini, s(51), s(229)); C.textAlign='left';
+
+  // Company name + verified
+  C.fillStyle='#707485';
+  C.font=`${s(15)}px IBM Plex Sans,sans-serif`;
+  C.fillText(j.co, s(86), s(212));
+  C.fillStyle='#059669';
+  rr(s(86), s(220), s(120), s(21), s(10)); C.fill();
+  C.fillStyle='#fff';
+  C.font=`bold ${s(12)}px sans-serif`;
+  C.fillText('✓ HeyJobs-geprüft', s(92), s(235));
+
+  // Job title
+  C.fillStyle='#181A22';
+  C.font=`bold ${s(25)}px IBM Plex Sans,sans-serif`;
+  const ws=j.title.split(' '); let ln='',lns=[];
+  ws.forEach(w=>{
+    const t=ln?ln+' '+w:w;
+    if(C.measureText(t).width>TW-s(52)&&ln){lns.push(ln);ln=w;}else ln=t;
+  });
+  if(ln)lns.push(ln);
+  lns.forEach((l,i)=>C.fillText(l, s(26), s(280)+i*s(31)));
+  const tB = s(280)+lns.length*s(31);
+
+  // Divider
+  C.fillStyle='#E5E6EC';
+  C.fillRect(s(26), tB+s(4), TW-s(52), 1);
+
+  // Details
+  [{i:'📍',t:j.loc},{i:'⏰',t:j.typ},{i:'💶',t:j.sal}].forEach((d,i)=>{
+    const y = tB+s(26)+i*s(42);
+    C.font=`${s(17)}px sans-serif`; C.fillText(d.i, s(26), y);
+    C.fillStyle='#181A22';
+    C.font=`${s(16)}px IBM Plex Sans,sans-serif`; C.fillText(d.t, s(58), y);
+  });
+  const dB = tB+s(26)+3*s(42)+s(4);
+
+  // Tags
+  let tx=s(26), ty=dB;
+  C.font=`600 ${s(13)}px IBM Plex Sans,sans-serif`;
+  j.tags.forEach(tag=>{
+    const tw=C.measureText(tag).width+s(20);
+    if(tx+tw>TW-s(26)){tx=s(26);ty+=s(32);}
+    C.fillStyle='#E5E6EC'; rr(tx,ty-s(17),tw,s(26),s(13)); C.fill();
+    C.fillStyle='#313545'; C.fillText(tag,tx+s(10),ty);
+    tx+=tw+s(6);
+  });
+
+  // Buttons
+  const bY = Math.max(ty+s(18), TH-s(145));
+  C.fillStyle='#EDEEF3'; rr(s(26),bY,s(102),s(52),s(11)); C.fill();
+  C.fillStyle='#181A22';
+  C.font=`bold ${s(14)}px IBM Plex Sans,sans-serif`;
+  C.fillText('🔖 Speichern', s(33), bY+s(32));
+
+  const g=C.createLinearGradient(s(138),0,TW-s(26),0);
+  g.addColorStop(0,'#F5B100'); g.addColorStop(.5,'#F6694E'); g.addColorStop(1,'#D02879');
+  C.fillStyle=g; rr(s(138),bY,TW-s(164),s(52),s(11)); C.fill();
+  C.fillStyle='#fff';
+  C.font=`bold ${s(15)}px IBM Plex Sans,sans-serif`;
+  C.textAlign='center';
+  C.fillText('Ich bin interessiert', s(138)+(TW-s(164))/2, bY+s(32));
+  C.textAlign='left';
+
+  // Dots
+  for(let i=0;i<3;i++){
+    C.fillStyle=i===cur?'#D02879':'#BBBFCF';
+    C.beginPath();
+    C.arc(TW/2-s(16)+i*s(16), TH-s(46), i===cur?s(5):s(3.5), 0, Math.PI*2);
+    C.fill();
+  }
+
+  C.restore();
+}
+
+function tick(now){
+  requestAnimationFrame(tick);
+  if(!inT && now-lastS>HOLD){ inT=true; tS=now; nxt=(cur+1)%JOBS.length; }
+  C.clearRect(0,0,TW,TH);
+  if(inT){
+    const t=Math.min((now-tS)/FADE,1);
+    drawJob(JOBS[cur],1-t);
+    drawJob(JOBS[nxt],t);
+    if(t>=1){ cur=nxt; inT=false; lastS=now; }
+  } else {
+    drawJob(JOBS[cur],1);
+  }
+}
+
+drawJob(JOBS[0],1);
+requestAnimationFrame(tick);
+
+// ── Mouse parallax ────────────────────────────────────────
+const phoneImg = document.querySelector('.phone-img');
+const flyout   = document.querySelector('.flyout');
+const screenCv = document.getElementById('sc');
+let mx=0, my=0, lx=0, ly=0;
+
+document.addEventListener('mousemove', e => {
+  mx = (e.clientX / window.innerWidth  - 0.5) * 2;
+  my = (e.clientY / window.innerHeight - 0.5) * 2;
+});
+
+function parallaxLoop() {
+  requestAnimationFrame(parallaxLoop);
+  lx += (mx - lx) * 0.06;
+  ly += (my - ly) * 0.06;
+  // Layer 1: phone image + canvas move together (same layer)
+  const p = `translate(${lx*5}px, ${ly*3}px)`;
+  phoneImg.style.transform = p;
+  screenCv.style.transform = `matrix3d(0.52162882,-0.00627719,0,-0.00004962,-0.25421972,0.49016949,0,-0.00005082,0,0,1,0,${267.29+lx*5},${22.04+ly*3},0,1)`;
+  // Layer 2: flyout moves a bit more
+  flyout.style.transform = `translateY(-50%) translate(${lx*10}px, ${ly*6}px)`;
+}
+parallaxLoop();
+</script>
+</body>
+</html>
