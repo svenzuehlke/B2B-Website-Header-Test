@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HeyJobs Header</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: transparent; }
+
+.scene { position: relative; display: inline-block; width: 920px; height: 1000px; }
+.phone-wrap { position: absolute; top: 80px; left: 240px; width: 420px; z-index: 2; }
+.phone-frame { position: relative; width: 420px; }
+.screen-clip { position: absolute; top: 25px; left: 13px; width: 395px; height: 860px; overflow: hidden; z-index: 1; background: #fff; }
+.screen-slide { position: absolute; top: 0; left: 0; width: 395px; height: 860px; display: none; overflow: hidden; }
+.screen-slide.active { display: block; }
+.screen-inner { width: 393px; height: 852px; transform-origin: 0 0; transform: scale(1.0051); position: absolute; top: 0; left: 0; overflow: hidden; background: #fff; font-family: 'IBM Plex Sans', sans-serif; }
+.phone-png { position: absolute; inset: 0; width: 100%; display: block; z-index: 3; pointer-events: none; }
+
+
+
+.flyout { position: absolute; z-index: 10; }
+.flyout img { display: block; }
+.flyout-right { left: 482px; top: 80px; width: 424px; animation: fl2 5.8s ease-in-out infinite; }
+.flyout-right img { width: 100%; }
+.flyout-left { left: 80px; top: 315px; width: 343px; animation: fl1 5.2s ease-in-out infinite; }
+.flyout-left img { width: 100%; }
+@keyframes fl1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes fl2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="phone-wrap" id="phoneWrap">
+    <div class="phone-frame">
+      <div class="screen-clip">
+
+        <!-- SCREEN 1: Instagram -->
+        <div class="screen-slide active" id="s0">
+          <div class="screen-inner" style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;">
+            <!-- Header -->
+            <div style="position:absolute;width:393px;height:72px;left:0;top:0;background:#fff;z-index:10;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:0.5px solid rgba(0,0,0,0.08);">
+              <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:5px;">
+                <div style="width:30px;height:30px;border-radius:50%;background:#F5B100;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                  <img src="favicon.svg" style="width:22px;height:22px;">
+                </div>
+              </div>
+              <div style="flex:1;">
+                <div style="font-weight:600;font-size:10.5px;color:#262626;display:flex;align-items:center;gap:3px;">
+                  heyjobsofficial
+                  <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#3897F0"/><path d="M3.5 6l1.8 1.8L8.5 4.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="font-size:9.4px;color:#8e8e8e;">Berlin, Germany</div>
+              </div>
+              <div style="display:flex;gap:3.5px;margin-right:20px;">
+                <div style="width:3.5px;height:3.5px;background:#262626;border-radius:50%;"></div>
+                <div style="width:3.5px;height:3.5px;background:#262626;border-radius:50%;"></div>
+                <div style="width:3.5px;height:3.5px;background:#262626;border-radius:50%;"></div>
+              </div>
+            </div>
+            <!-- Photo -->
+            <img src="https://res.cloudinary.com/heyjobs/image/upload/v1779625212/marketing/heyjobsgenai__ID_1312_ID__Kinderkrankenschwester-pfleger__Q2__7dbbb613-e415-4b1d-9e26-1eb73d875b99_3_1.png" style="position:absolute;width:400px;height:500px;left:calc(50% - 200px);top:74.54px;object-fit:cover;object-position:center top;">
+            <!-- Job card -->
+            <div style="position:absolute;width:350px;height:129px;left:calc(50% - 177.5px);top:411px;background:#fff;border-radius:9.5px;padding:12px 14px;display:flex;align-items:flex-start;justify-content:space-between;z-index:5;">
+              <div>
+                <div style="font-weight:700;font-size:28px;line-height:120%;color:#181A22;width:215px;">Pflegefachkraft<br>(m/w/d)</div>
+                <div style="position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:4px;font-size:13.7px;font-weight:500;color:#181A22;">
+                  <svg width="10" height="14" viewBox="0 0 10 14" fill="#181A22"><path d="M5 0C2.24 0 0 2.24 0 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5S4.17 3.5 5 3.5 6.5 4.17 6.5 5 5.83 6.5 5 6.5z"/></svg>
+                  Berlin
+                </div>
+              </div>
+              <div style="width:97px;height:97px;background:#fff;border-radius:3.2px;box-shadow:1.1px 1.1px 3.6px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <img src="https://res.cloudinary.com/heyjobs/image/upload/v1780564183/marketing/placeholder_Logo.png" style="width:71px;height:71px;object-fit:contain;">
+              </div>
+            </div>
+            <!-- Bottom bar -->
+            <div style="position:absolute;width:421px;height:160px;left:-20px;top:575px;background:#fff;z-index:4;"></div>
+            <!-- Actions -->
+            <div style="position:absolute;left:28px;top:591px;display:flex;align-items:center;gap:16px;z-index:5;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </div>
+            <div style="position:absolute;right:28px;top:591px;z-index:5;">
+              <svg width="18" height="20" viewBox="0 0 18 20" fill="none" stroke="#262626" stroke-width="1.5"><path d="M17 19l-8-5-8 5V3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <!-- Likes -->
+            <div style="position:absolute;left:28px;top:626px;z-index:5;display:flex;align-items:center;gap:6px;font-size:11px;color:#262626;">
+              <div style="width:15px;height:15px;border-radius:50%;background:#F5B100;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                <img src="favicon.svg" style="width:13px;height:13px;">
+              </div>
+              Liked by <strong style="margin:0 2px;">marius_lu</strong> and <strong>44,686 others</strong>
+            </div>
+            <!-- Caption -->
+            <div style="position:absolute;left:28px;right:28px;top:649px;z-index:5;font-size:11px;line-height:15px;color:#262626;">
+              <strong>heyjobsofficial</strong> Wir suchen engagierte MitarbeiterInnen für den Einsatz als Pflegefachkraft (m/w/d) bei go Soziales Netz GmbH in Berlin. Kein Lebenslauf benötigt.
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 2: Job Page -->
+        <div class="screen-slide" id="s1">
+          <div class="screen-inner">
+            <!-- Nav -->
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px 12px;position:absolute;width:393px;height:72px;left:0;top:0;background:#fff;z-index:10;box-shadow:0 2px 4px rgba(76,82,107,0.06),0 2px 4px rgba(24,26,34,0.04),0 -2px 4px rgba(76,82,107,0.04);">
+              <svg width="116" height="36" viewBox="0 0 116 32" fill="none"><path fill="#D02879" fill-rule="evenodd" d="M67.47 21.69c2.42 0 3.9-1.83 3.9-5.25s-1.48-5.25-3.9-5.25c-2.45 0-3.94 1.83-3.94 5.25s1.49 5.25 3.94 5.25m0 4.14c-5.9 0-9.46-3.9-9.46-9.4 0-5.48 3.55-9.39 9.46-9.39 5.87 0 9.43 3.9 9.43 9.4 0 5.49-3.56 9.4-9.43 9.4z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M91.94 16.44c0-3.46-1.38-5.25-3.63-5.25-2.24 0-3.62 1.8-3.62 5.25s1.38 5.25 3.62 5.25c2.25 0 3.63-1.8 3.63-5.25m5.53 0c0 5.8-3 9.4-7.7 9.4a6.6 6.6 0 0 1-5.12-2.32h-.07v1.76h-5.52V.58h5.52v8.78h.07a6.6 6.6 0 0 1 5.11-2.32c4.7 0 7.7 3.6 7.7 9.4z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M115.68 20.06c0 3.73-2.83 5.77-7.74 5.77-6.32 0-8.73-2.83-8.9-6.42h5.17c.18 1.76 1.35 2.62 3.53 2.62 1.55 0 2.42-.51 2.42-1.52 0-1.52-1.66-1.72-4.46-2.35-3-.65-6.32-1.76-6.32-5.45 0-3.21 2.76-5.67 7.74-5.67 5.66 0 7.87 2.87 8.04 5.98h-5.18c-.17-1.42-.93-2.18-2.73-2.18-1.55 0-2.34.55-2.34 1.42 0 1.24 1.1 1.28 3.83 1.86 3.49.76 6.94 1.94 6.94 5.94" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M27.26 14.54h7.2c0-2.46-1.48-3.7-3.6-3.7-2.11 0-3.6 1.24-3.6 3.7m6.97 5.41h5.5c-.96 3.57-3.74 5.93-8.55 5.93-5.9 0-9.47-3.88-9.47-9.43 0-5.4 3.5-9.43 9.15-9.43 6.07 0 9.15 4.44 9.15 10.89H27.26c0 2.5 1.84 3.8 3.81 3.8 1.9 0 2.8-.9 3.16-1.76" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M52.87 3c0-1.6 1.21-2.46 2.77-2.46s2.77.87 2.77 2.46c0 1.63-1.2 2.46-2.77 2.46-1.56 0-2.77-.83-2.77-2.46" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M47.75 16.2 45.1 7.57h-5.54l5.73 15.03s1.33-3.1 2.47-6.42z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="m52.55 7.58-2.22 7.68c-.54 2.2-2.4 9.13-5.03 11.18-.64.7-1.8.83-3.19.51h-.07v4.16c1.15.24 2.15.35 3.09.35 3.74 0 5.4-1.25 6.93-5.79l6.03-18.1h-5.54z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M5.57.59v9.67h8.39V.59h5.53v24.7h-5.53v-9.95H5.57v9.95H.04V.59z" clip-rule="evenodd"/></svg>
+              <div style="display:flex;gap:16px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              </div>
+            </div>
+            <!-- Content -->
+            <div style="position:absolute;left:0;top:72px;width:393px;height:601px;overflow:hidden;display:flex;flex-direction:column;">
+              <div style="padding:32px 24px 0;flex-shrink:0;">
+                <div style="font-family:'ES Rebond Grotesque','IBM Plex Sans',sans-serif;font-weight:700;font-size:32px;line-height:122%;color:#181A22;">Pflegefachkraft (m/w/d)</div>
+              </div>
+              <div style="padding:16px 24px 0;display:flex;flex-direction:column;gap:16px;flex-shrink:0;">
+                <div style="display:flex;gap:16px;">
+                  <div style="width:80px;height:80px;border:2px solid #9397A9;border-radius:8px;background:#fff;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+                    <img src="https://res.cloudinary.com/heyjobs/image/upload/v1780564183/marketing/placeholder_Logo.png" style="width:54px;height:54px;object-fit:contain;">
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:8px;padding-top:2px;">
+                    <div style="font-size:22px;font-weight:500;line-height:30px;letter-spacing:0.2px;text-decoration:underline;color:#181A22;">go Soziales Netz GmbH</div>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.707 7.707a1 1 0 0 0-1.414-1.414L10 13.586l-2.293-2.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l6-6z" fill="#0A7749"/></svg>
+                      <span style="font-size:16px;font-weight:500;color:#0A7749;">HeyJobs-geprüft</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#313545"/></svg>
+                    <span style="font-size:16px;color:#313545;">13086 Berlin</span>
+                  </div>
+                  <div style="background:#40B584;color:#fff;font-size:14px;font-weight:500;padding:4px 8px;border-radius:8px;">Teilweise Homeoffice</div>
+                </div>
+              </div>
+              <div style="padding:16px 24px 0;display:flex;flex-direction:column;gap:16px;flex-shrink:0;">
+                <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#313545" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size:16px;color:#313545;">Vollzeit</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#313545" stroke-width="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z" stroke="#313545" stroke-width="2"/></svg><span style="font-size:16px;color:#313545;">2.800 € /Monat + Provision</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size:16px;color:#313545;">Flexible Arbeitszeiten</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#313545" stroke-width="2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size:16px;color:#313545;">Tagesschicht</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#313545" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="#313545" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size:16px;color:#313545;">Offen für Quereinsteiger</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#313545" stroke-width="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z" stroke="#313545" stroke-width="2"/></svg><span style="font-size:16px;color:#313545;">Keine Arbeitserfahrung nötig</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SCREEN 3: Recruiter Email -->
+        <div class="screen-slide" id="s2">
+          <div class="screen-inner">
+            <!-- Nav -->
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px 12px;position:absolute;width:393px;height:72px;left:0;top:0;background:#fff;z-index:10;box-shadow:0 2px 4px rgba(76,82,107,0.06),0 2px 4px rgba(24,26,34,0.04),0 -2px 4px rgba(76,82,107,0.04);">
+              <svg width="116" height="36" viewBox="0 0 116 32" fill="none"><path fill="#D02879" fill-rule="evenodd" d="M67.47 21.69c2.42 0 3.9-1.83 3.9-5.25s-1.48-5.25-3.9-5.25c-2.45 0-3.94 1.83-3.94 5.25s1.49 5.25 3.94 5.25m0 4.14c-5.9 0-9.46-3.9-9.46-9.4 0-5.48 3.55-9.39 9.46-9.39 5.87 0 9.43 3.9 9.43 9.4 0 5.49-3.56 9.4-9.43 9.4z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M91.94 16.44c0-3.46-1.38-5.25-3.63-5.25-2.24 0-3.62 1.8-3.62 5.25s1.38 5.25 3.62 5.25c2.25 0 3.63-1.8 3.63-5.25m5.53 0c0 5.8-3 9.4-7.7 9.4a6.6 6.6 0 0 1-5.12-2.32h-.07v1.76h-5.52V.58h5.52v8.78h.07a6.6 6.6 0 0 1 5.11-2.32c4.7 0 7.7 3.6 7.7 9.4z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M115.68 20.06c0 3.73-2.83 5.77-7.74 5.77-6.32 0-8.73-2.83-8.9-6.42h5.17c.18 1.76 1.35 2.62 3.53 2.62 1.55 0 2.42-.51 2.42-1.52 0-1.52-1.66-1.72-4.46-2.35-3-.65-6.32-1.76-6.32-5.45 0-3.21 2.76-5.67 7.74-5.67 5.66 0 7.87 2.87 8.04 5.98h-5.18c-.17-1.42-.93-2.18-2.73-2.18-1.55 0-2.34.55-2.34 1.42 0 1.24 1.1 1.28 3.83 1.86 3.49.76 6.94 1.94 6.94 5.94" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M27.26 14.54h7.2c0-2.46-1.48-3.7-3.6-3.7-2.11 0-3.6 1.24-3.6 3.7m6.97 5.41h5.5c-.96 3.57-3.74 5.93-8.55 5.93-5.9 0-9.47-3.88-9.47-9.43 0-5.4 3.5-9.43 9.15-9.43 6.07 0 9.15 4.44 9.15 10.89H27.26c0 2.5 1.84 3.8 3.81 3.8 1.9 0 2.8-.9 3.16-1.76" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M52.87 3c0-1.6 1.21-2.46 2.77-2.46s2.77.87 2.77 2.46c0 1.63-1.2 2.46-2.77 2.46-1.56 0-2.77-.83-2.77-2.46" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M47.75 16.2 45.1 7.57h-5.54l5.73 15.03s1.33-3.1 2.47-6.42z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="m52.55 7.58-2.22 7.68c-.54 2.2-2.4 9.13-5.03 11.18-.64.7-1.8.83-3.19.51h-.07v4.16c1.15.24 2.15.35 3.09.35 3.74 0 5.4-1.25 6.93-5.79l6.03-18.1h-5.54z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M5.57.59v9.67h8.39V.59h5.53v24.7h-5.53v-9.95H5.57v9.95H.04V.59z" clip-rule="evenodd"/></svg>
+              <div style="display:flex;gap:16px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              </div>
+            </div>
+            <!-- Content -->
+            <div style="position:absolute;left:0;top:72px;width:393px;height:780px;overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:20px;">
+              <div>
+                <div style="font-family:'ES Rebond Grotesque','IBM Plex Sans',sans-serif;font-weight:700;font-size:26px;line-height:25px;letter-spacing:0.2px;color:#202020;">Gute Neuigkeiten:</div>
+                <div style="font-family:'ES Rebond Grotesque','IBM Plex Sans',sans-serif;font-weight:400;font-size:26px;line-height:36px;letter-spacing:0.2px;color:#202020;margin-top:8px;">Sie haben einen neuen Kandidaten.</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="font-weight:600;font-size:18px;line-height:150%;letter-spacing:0.002em;color:#202020;">Salvador Domingo Felipe Jacinto Dalí</div>
+                <div style="font-size:16px;line-height:150%;color:#202020;">hat sich beworben als</div>
+                <div style="font-weight:600;font-size:16px;line-height:150%;color:#202020;">Pflegefachkraft (m/w/d)</div>
+                <div style="display:flex;gap:16px;margin-top:4px;">
+                  <div style="display:flex;align-items:center;gap:4px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5s4.5-5 4.5-8.5C12.5 3.5 10.5 1.5 8 1.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#757575"/></svg><span style="font-size:14px;color:#202020;">Berlin</span></div>
+                  <div style="display:flex;align-items:center;gap:4px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#757575" stroke-width="1.3"/><path d="M8 5v3.5l2 1.5" stroke="#757575" stroke-width="1.3" stroke-linecap="round"/></svg><span style="font-size:14px;color:#202020;">Vollzeit</span></div>
+                  <span style="font-size:14px;color:#202020;">Job ID: 6545 8256 A</span>
+                </div>
+              </div>
+              <!-- Banner 1 -->
+              <div style="display:flex;align-items:center;padding:16px 24px;gap:24px;background:#FFF3D6;border-radius:8px;margin-left:-2px;">
+                <svg width="54" height="70" viewBox="0 0 54 70" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.3578 65.4033L3.10947 18.625C2.86972 17.2652 3.77764 15.9686 5.13737 15.7288L40.463 9.49995C41.8228 9.26019 43.1194 10.1681 43.3592 11.5278L50.5656 52.3973L51.6074 58.3062C51.8472 59.6659 50.9393 60.9626 49.5795 61.2023L14.2539 67.4312C12.8942 67.6709 11.5975 66.763 11.3578 65.4033Z" fill="white" stroke="#181A22" stroke-width="1.91" stroke-linecap="round" stroke-linejoin="round"/><path d="M26.0337 25.608C28.1354 37.5271 10.2567 40.6796 8.15505 28.7605C6.05339 16.8414 23.932 13.6889 26.0337 25.608Z" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/><path d="M22.017 31.7808C21.9053 31.1478 20.6326 30.0669 19.1632 30.326C17.6939 30.5851 17.6939 30.5851 16.2245 30.8442C14.7552 31.1033 13.9289 32.5543 14.0405 33.1872" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/><path d="M13.6182 25.2594C14.3173 29.2243 20.2646 28.1755 19.5654 24.2108C18.8662 20.2461 12.9191 21.2946 13.6182 25.2594Z" fill="url(#g1)" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/><rect width="27.6611" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 40.7977 48.391)" fill="#181A22"/><rect width="32.545" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 44.566 41.6336)" fill="#181A22"/><rect width="18.1647" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 29.3619 38.2215)" fill="#181A22"/><rect width="32.545" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 46.6495 53.451)" fill="#181A22"/><path d="M37.8669 10.6786C38.5788 17.8229 39.808 23.2296 36.2358 23.5855C32.6636 23.9415 26.5809 17.2751 25.869 10.1308C26.4355 3.65557 28.4279 3.82988 31.5036 3.09494C35.0758 2.739 37.155 3.53428 37.8669 10.6786Z" fill="white"/><path d="M26.9079 8.87702C26.9079 8.87702 27.0236 9.53356 26.821 8.38461C26.6184 7.23567 27.5168 3.69251 30.9637 3.08474C34.4105 2.47697 36.3218 4.67852 36.6691 6.64813C37.0164 8.61774 38.9265 19.4506 38.9265 19.4506C39.1291 20.5996 38.8449 23.019 36.0875 23.5052C33.33 23.9914 32.2355 21.8151 32.0329 20.6662L30.2096 10.3257C30.2579 9.64021 30.3547 8.26925 31.8319 8.00878C33.3091 7.7483 34.0909 9.30283 34.1488 9.6311L35.7116 18.4944" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/><defs><linearGradient id="g1" x1="19.0411" y1="21.2372" x2="12.3216" y2="24.7437" gradientUnits="userSpaceOnUse"><stop stop-color="#D02879"/><stop offset="0.5" stop-color="#F16247"/><stop offset="1" stop-color="#F5B100"/></linearGradient></defs></svg>
+                <div style="font-weight:600;font-size:20px;line-height:150%;letter-spacing:0.2px;color:#212121;">Kandidatenprofil: Jetzt im Anhang prüfen</div>
+              </div>
+              <!-- Banner 2 -->
+              <div style="display:flex;padding:16px 24px;gap:32px;background:#FFF3D6;border-radius:8px;margin-left:-2px;">
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                  <div style="font-weight:600;font-size:20px;line-height:150%;color:#212121;">HeyAssessment: Jetzt aktivieren</div>
+                  <div style="font-size:16px;line-height:143%;letter-spacing:0.17px;color:#212121;">Mit HeyAssessment sammeln wir so viele zusätzliche relevante Daten von Ihren Kandidaten wie möglich, damit Sie Bewerbungen in kürzester Zeit prüfen und vergleichen können. Es ist verfügbar für alle Ihre HIRE- und REACH-Jobs.</div>
+                  <div style="font-weight:600;font-size:16px;color:#D02879;cursor:pointer;">Jetzt aktivieren →</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <img class="phone-png"
+        src="https://res.cloudinary.com/heyjobs/image/upload/v1780564047/marketing/iPhone_website_Header.png"
+        alt="">
+    </div>
+  </div>
+
+  <div class="flyout flyout-left" id="f1"><img src="flyout_left.svg" alt=""></div>
+  <div class="flyout flyout-right" id="f2"><img src="flyout_right.svg" alt=""></div>
+</div>
+
+<script>
+const slides=['s0','s1','s2'].map(id=>document.getElementById(id));
+
+const phoneWrap=document.getElementById('phoneWrap');
+const f1=document.getElementById('f1');
+const f2=document.getElementById('f2');
+let cur=0;
+function goTo(idx){slides[cur].classList.remove('active');slides[cur].style.display='none';cur=idx;slides[cur].classList.add('active');slides[cur].style.display='block';}
+
+setInterval(()=>goTo((cur+1)%3),4000);
+let mx=0,my=0,lx=0,ly=0;
+document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2;});
+(function loop(){requestAnimationFrame(loop);lx+=(mx-lx)*.06;ly+=(my-ly)*.06;phoneWrap.style.transform=`translate(${lx*8}px,${ly*5}px)`;f1.style.transform=`translateY(0) translate(${lx*22}px,${ly*14}px)`;f2.style.transform=`translateY(0) translate(${lx*30}px,${ly*18}px)`;})();
+slides[0].style.display='block';
+</script>
+</body>
+</html>
