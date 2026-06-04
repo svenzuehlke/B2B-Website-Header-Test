@@ -4,9 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HeyJobs Header</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'ES Rebond Grotesque';
+      src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff2') format('woff2'),
+           url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff') format('woff');
+      font-weight: 700; font-style: normal;
+    }
+    @font-face {
+      font-family: 'ES Rebond Grotesque';
+      src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff2') format('woff2'),
+           url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff') format('woff');
+      font-weight: 400; font-style: normal;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: transparent; }
+    body { background: transparent; font-family: 'IBM Plex Sans', sans-serif; }
 
     .scene {
       position: relative;
@@ -15,15 +29,12 @@
       height: 1000px;
       isolation: isolate;
     }
-
     .phone-wrap {
       position: absolute;
       top: 80px; left: 240px;
-      width: 420px;
-      z-index: 2;
+      width: 420px; z-index: 2;
     }
     .phone-frame { position: relative; width: 420px; }
-
     .screen-clip {
       position: absolute;
       top: 6%; left: 5%;
@@ -33,21 +44,23 @@
       z-index: 1;
       background: #fff;
     }
-
     .screen-slide {
       position: absolute; inset: 0;
       opacity: 0;
       transition: opacity 0.6s ease;
+      overflow: hidden;
     }
     .screen-slide.active { opacity: 1; }
 
-    .screen-slide iframe {
-      border: none;
-      width: 393px; height: 852px;
+    /* Scale each screen from 393px to fit clip width (~378px) */
+    .screen-slide > div {
+      width: 393px;
+      height: 852px;
       transform-origin: 0 0;
       transform: scale(0.961);
-      display: block;
-      pointer-events: none;
+      position: absolute;
+      top: 0; left: 0;
+      overflow: hidden;
     }
 
     .dots {
@@ -88,6 +101,173 @@
     @keyframes fl1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
     @keyframes fl2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
   </style>
+
+  <style>@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff') format('woff');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff') format('woff');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Medium.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Medium.woff') format('woff');
+  font-weight: 500; font-style: normal;
+}
+#screen1 { margin: 0; padding: 0; box-sizing: border-box; }#screen1 {
+  width: 393px; height: 852px;
+  overflow: hidden; background: #fff;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+}#screen1 .screen { position: relative; width: 393px; height: 852px; overflow: hidden; background: #fff; }#screen1 /* Header */
+.header {
+  position: absolute; width: 393px; height: 72px; left: 0; top: 0;
+  background: #fff; z-index: 10;
+  display: flex; align-items: center; padding: 0 12px; gap: 8px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.08);
+}#screen1 .avatar-wrap { position: relative; width: 34px; height: 34px; flex-shrink: 0; }#screen1 .avatar-ring {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  display: flex; align-items: center; justify-content: center;
+}#screen1 .avatar-inner {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #F5B100;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}#screen1 .avatar-inner img { width: 22px; height: 22px; }#screen1 .header-info { flex: 1; }#screen1 .header-username {
+  font-weight: 600; font-size: 10.5px; line-height: 14px;
+  letter-spacing: -0.085px; color: #262626;
+  display: flex; align-items: center; gap: 3px;
+}#screen1 .verified { color: #3897F0; font-size: 10px; }#screen1 .header-location { font-size: 9.37px; line-height: 12px; color: #8e8e8e; }#screen1 .more-icon { display: flex; gap: 3.5px; align-items: center; }#screen1 .more-dot { width: 3.5px; height: 3.5px; background: #262626; border-radius: 50%; }#screen1 /* Photo */
+.photo {
+  position: absolute;
+  width: 400px; height: 500px;
+  left: calc(50% - 200px); top: 74.54px;
+  object-fit: cover; object-position: center top;
+}#screen1 /* Job card */
+.job-card {
+  position: absolute;
+  width: 350.05px; height: 128.93px;
+  left: calc(50% - 175.025px - 2.5px); top: 411.28px;
+  background: #fff; border-radius: 9.47px;
+  padding: 14px 14px 14px 14px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  z-index: 5;
+}#screen1 .job-title {
+  font-family: 'ES Rebond Grotesque', 'IBM Plex Sans', sans-serif;
+  font-weight: 700; font-size: 28px; line-height: 120%;
+  color: #181A22; width: 213px;
+}#screen1 .job-location {
+  position: absolute; left: 14px; bottom: 14px;
+  display: flex; align-items: center; gap: 4px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500; font-size: 13.71px; color: #181A22;
+}#screen1 .go-logo-wrap {
+  width: 97.24px; height: 97.24px;
+  background: #fff; border-radius: 3.24px;
+  box-shadow: 1.08px 1.08px 3.6px rgba(0,0,0,0.2);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}#screen1 .go-logo-wrap img { width: 70.74px; height: 71.26px; object-fit: contain; }#screen1 /* Bottom bar */
+.bottom-bar {
+  position: absolute; width: 421px; height: 159.54px;
+  left: -20.28px; top: 574.54px; background: #fff; z-index: 4;
+}#screen1 /* Actions */
+.actions {
+  position: absolute; left: 27.62px; top: 591.45px;
+  display: flex; align-items: center; gap: 16px; z-index: 5;
+}#screen1 .actions svg { width: 20px; height: 20px; fill: none; stroke: #262626; stroke-width: 1.5; }#screen1 .save-icon { position: absolute; right: 27.62px; top: 590.75px; z-index: 5; }#screen1 .save-icon svg { width: 18px; height: 20px; fill: none; stroke: #262626; stroke-width: 1.5; }#screen1 /* Likes */
+.likes {
+  position: absolute; left: 27.62px; top: 626.05px; z-index: 5;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.07px; color: #262626; line-height: 15px;
+}#screen1 .likes-avatar {
+  width: 14.77px; height: 14.77px; border-radius: 50%;
+  overflow: hidden; flex-shrink: 0; background: #F5B100;
+  display: flex; align-items: center; justify-content: center;
+}#screen1 .likes-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }#screen1 /* Caption */
+.caption {
+  position: absolute; left: 27.62px; right: 37.67px; top: 649px; z-index: 5;
+  font-size: 11.07px; line-height: 15px; letter-spacing: -0.085px; color: #262626;
+}#screen1 .caption strong { font-weight: 600; }
+
+</style>
+  <style>@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff') format('woff');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff') format('woff');
+  font-weight: 400; font-style: normal;
+}
+#screen2 { margin: 0; padding: 0; box-sizing: border-box; }#screen2 { width: 393px; height: 852px; overflow: hidden; background: #fff; font-family: 'IBM Plex Sans', sans-serif; }#screen2 .screen { position: relative; width: 393px; height: 852px; overflow: hidden; background: #fff; }#screen2 /* Nav */
+.nav {
+  display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+  padding: 16px 24px 12px;
+  position: absolute; width: 393px; height: 72px; left: 0; top: 0;
+  background: #fff; z-index: 10;
+  box-shadow: 0px 2px 4px rgba(76,82,107,0.06), 0px 2px 4px rgba(24,26,34,0.04), 0px -2px 4px rgba(76,82,107,0.04);
+}#screen2 .nav-logo { width: 116px; height: 36px; }#screen2 .nav-icons { display: flex; align-items: center; gap: 16px; }#screen2 .nav-icon-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }#screen2 .nav-icon-btn svg { width: 24px; height: 24px; }#screen2 /* Content */
+.content {
+  position: absolute; left: 0; top: 72px;
+  width: 393px; height: 601px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}#screen2 .job-title-section {
+  display: flex; align-items: center;
+  padding: 32px 24px 0px;
+  width: 393px; height: 110px; flex-shrink: 0;
+}#screen2 .job-title {
+  font-family: 'ES Rebond Grotesque', sans-serif;
+  font-weight: 700; font-size: 32px; line-height: 122%;
+  color: #181A22; width: 244px;
+}#screen2 .company-section {
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: 0px 24px; gap: 16px;
+  margin-top: 16px; flex-shrink: 0;
+}#screen2 .company-row { display: flex; flex-direction: row; align-items: flex-start; gap: 16px; }#screen2 .company-logo {
+  width: 80px; height: 80px;
+  border: 2px solid #9397A9; border-radius: 8px;
+  background: #fff; overflow: hidden; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}#screen2 .company-logo img { width: 53.71px; height: 54.1px; object-fit: contain; }#screen2 .company-info { display: flex; flex-direction: column; gap: 8px; width: 231px; padding-top: 2px; }#screen2 .company-name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500; font-size: 22px; line-height: 30px;
+  letter-spacing: 0.2px; text-decoration: underline; color: #181A22;
+}#screen2 .verified-badge { display: flex; align-items: center; gap: 8px; height: 24px; }#screen2 .verified-badge svg { width: 24px; height: 24px; flex-shrink: 0; }#screen2 .verified-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; color: #0A7749; }#screen2 .location-row { display: flex; flex-direction: row; align-items: center; gap: 8px; flex-wrap: wrap; }#screen2 .location-item { display: flex; align-items: center; padding: 4px 0; gap: 8px; }#screen2 .location-item svg { width: 24px; height: 24px; flex-shrink: 0; }#screen2 .location-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; color: #313545; }#screen2 .badge-green { display: flex; align-items: center; padding: 4px 8px; background: #40B584; border-radius: 8px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 500; font-size: 14px; line-height: 22px; color: #fff; white-space: nowrap; }#screen2 .details-section { display: flex; flex-direction: column; align-items: flex-start; padding: 0px 24px; gap: 16px; width: 393px; margin-top: 16px; flex-shrink: 0; }#screen2 .detail-row { display: flex; align-items: center; gap: 8px; height: 24px; }#screen2 .detail-row svg { width: 24px; height: 24px; flex-shrink: 0; }#screen2 .detail-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; color: #313545; }#screen2 /* Bottom */
+.bottom-area { position: absolute; left: 0; bottom: 0; width: 394px; display: flex; flex-direction: column; }#screen2 .bottom-nav {
+  display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+  padding: 23px 25.19px; width: 394px; height: 96.38px;
+  background: #fff;
+  box-shadow: 0px 4.2px 6.3px rgba(76,82,107,0.08), 0px 2.1px 2.1px rgba(24,26,34,0.06), 0px -2.1px 4.2px rgba(76,82,107,0.04);
+}#screen2 .btn-save { display: flex; align-items: center; justify-content: center; padding: 12.6px 0; width: 73.47px; height: 50.38px; border-radius: 8.4px; background: transparent; border: none; cursor: pointer; }#screen2 .btn-save-label { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 16.79px; line-height: 25px; letter-spacing: 0.022em; text-decoration: underline; color: #181A22; white-space: nowrap; }#screen2 .btn-apply { display: flex; justify-content: center; align-items: center; padding: 12.6px 0; width: 177.38px; height: 50.38px; background: linear-gradient(107.56deg, #D02879 0%, #F16247 50%, #F5B100 100%); border-radius: 8.4px; border: none; cursor: pointer; }#screen2 .btn-apply-label { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 16.79px; line-height: 25px; letter-spacing: 0.022em; color: #fff; }#screen2 .no-cv-bar { display: flex; justify-content: center; align-items: center; padding: 8.4px 10.5px; width: 393.59px; height: 42.79px; background: #181A22; }#screen2 .no-cv-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 500; font-size: 16.79px; line-height: 25px; letter-spacing: 0.1px; color: #fff; }
+
+</style>
+  <style>@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff') format('woff');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff') format('woff');
+  font-weight: 400; font-style: normal;
+}
+#screen3 { margin: 0; padding: 0; box-sizing: border-box; }#screen3 { width: 393px; height: 852px; overflow: hidden; background: #fff; font-family: 'IBM Plex Sans', sans-serif; }#screen3 .screen { position: relative; width: 393px; height: 852px; overflow: hidden; background: #fff; }#screen3 /* Nav — same as screen 2 */
+.nav { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 16px 24px 12px; position: absolute; width: 393px; height: 72px; left: 0; top: 0; background: #fff; z-index: 10; box-shadow: 0px 2px 4px rgba(76,82,107,0.06), 0px 2px 4px rgba(24,26,34,0.04), 0px -2px 4px rgba(76,82,107,0.04); }#screen3 .nav-logo { width: 116px; height: 36px; }#screen3 .nav-icons { display: flex; align-items: center; gap: 16px; }#screen3 .nav-icon-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }#screen3 .nav-icon-btn svg { width: 24px; height: 24px; }#screen3 /* Content */
+.content { position: absolute; left: 0; top: 72px; width: 393px; height: 780px; overflow: hidden; display: flex; flex-direction: column; padding: 16px 16px 40px; gap: 24px; background: #fff; }#screen3 .email-intro { font-family: 'ES Rebond Grotesque', sans-serif; font-weight: 700; font-size: 26px; line-height: 25px; letter-spacing: 0.2px; color: #202020; }#screen3 .email-title { font-family: 'ES Rebond Grotesque', sans-serif; font-weight: 400; font-size: 26px; line-height: 36px; letter-spacing: 0.2px; color: #202020; margin-top: 8px; }#screen3 .candidate-block { display: flex; flex-direction: column; gap: 4px; }#screen3 .candidate-name { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 18px; line-height: 150%; letter-spacing: 0.002em; color: #202020; }#screen3 .applied-as { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 150%; letter-spacing: 0.002em; color: #202020; }#screen3 .job-title-row { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 16px; line-height: 150%; letter-spacing: 0.1px; color: #202020; }#screen3 .tags-row { display: flex; flex-wrap: wrap; gap: 2px 16px; margin-top: 4px; }#screen3 .tag-item { display: flex; align-items: center; gap: 4px; height: 23px; }#screen3 .tag-item svg { width: 16px; height: 16px; }#screen3 .tag-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 14px; line-height: 166%; letter-spacing: 0.4px; color: #202020; }#screen3 .banner-profile { display: flex; flex-direction: row; align-items: center; padding: 16px 24px; gap: 24px; width: 361px; min-height: 101px; background: #FFF3D6; border-radius: 8px; }#screen3 .cv-icon { width: 54px; height: 70px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }#screen3 .banner-profile-content { display: flex; flex-direction: column; gap: 8px; }#screen3 .banner-title { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 20px; line-height: 150%; letter-spacing: 0.2px; color: #212121; }#screen3 .banner-ha { display: flex; flex-direction: row; align-items: flex-start; padding: 16px 24px; gap: 32px; width: 361px; background: #FFF3D6; border-radius: 8px; }#screen3 .banner-ha-content { display: flex; flex-direction: column; gap: 8px; }#screen3 .banner-ha-title { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 20px; line-height: 150%; letter-spacing: 0.2px; color: #212121; }#screen3 .banner-ha-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 143%; letter-spacing: 0.17px; color: #212121; }#screen3 .banner-ha-cta { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.002em; color: #D02879; margin-top: 8px; cursor: pointer; }
+
+</style>
 </head>
 <body>
 <div class="scene">
@@ -97,13 +277,192 @@
       <div class="screen-clip">
 
         <div class="screen-slide active" id="s0">
-          <iframe src="screen_1.html" scrolling="no"></iframe>
+          <div id="screen1"><div class="screen">
+  <div class="header">
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <img src="favicon.svg" alt="HeyJobs">
         </div>
+      </div>
+    </div>
+    <div class="header-info">
+      <div class="header-username">
+        heyjobsofficial
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#3897F0"/><path d="M3.5 6l1.8 1.8L8.5 4.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="header-location">Berlin, Germany</div>
+    </div>
+    <div class="more-icon">
+      <div class="more-dot"></div><div class="more-dot"></div><div class="more-dot"></div>
+    </div>
+  </div>
+
+  <img class="photo" src="https://res.cloudinary.com/heyjobs/image/upload/v1779625212/marketing/heyjobsgenai__ID_1312_ID__Kinderkrankenschwester-pfleger__Q2__7dbbb613-e415-4b1d-9e26-1eb73d875b99_3_1.png" alt="">
+
+  <div class="job-card">
+    <div>
+      <div class="job-title">Pflegefachkraft<br>(m/w/d)</div>
+      <div class="job-location">
+        <svg width="9.55" height="13.71" viewBox="0 0 10 14" fill="#181A22"><path d="M5 0C2.24 0 0 2.24 0 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5S4.17 3.5 5 3.5 6.5 4.17 6.5 5 5.83 6.5 5 6.5z"/></svg>
+        Berlin
+      </div>
+    </div>
+    <div class="go-logo-wrap">
+      <img src="https://res.cloudinary.com/heyjobs/image/upload/v1780564183/marketing/placeholder_Logo.png" alt="go">
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+
+  <div class="actions">
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+  </div>
+  <div class="save-icon">
+    <svg viewBox="0 0 18 20"><path d="M17 19l-8-5-8 5V3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg>
+  </div>
+
+  <div class="likes">
+    <div class="likes-avatar">
+      <img src="favicon.svg" alt="">
+    </div>
+    Liked by <strong style="margin:0 2px;">marius_lu</strong> and <strong style="margin-left:2px;">44,686 others</strong>
+  </div>
+
+  <div class="caption">
+    <strong>heyjobsofficial</strong> Wir suchen engagierte MitarbeiterInnen für den Einsatz als Pflegefachkraft (m/w/d) bei go Soziales Netz GmbH in Berlin. Kein Lebenslauf benötigt.
+  </div>
+</div></div>
+        </div>
+
         <div class="screen-slide" id="s1">
-          <iframe src="screen_2.html" scrolling="no"></iframe>
+          <div id="screen2"><div class="screen">
+  <div class="nav">
+    <svg class="nav-logo" viewBox="0 0 116 32" fill="none">
+      <path fill="#D02879" fill-rule="evenodd" d="M67.47 21.69c2.42 0 3.9-1.83 3.9-5.25s-1.48-5.25-3.9-5.25c-2.45 0-3.94 1.83-3.94 5.25s1.49 5.25 3.94 5.25m0 4.14c-5.9 0-9.46-3.9-9.46-9.4 0-5.48 3.55-9.39 9.46-9.39 5.87 0 9.43 3.9 9.43 9.4 0 5.49-3.56 9.4-9.43 9.4z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M91.94 16.44c0-3.46-1.38-5.25-3.63-5.25-2.24 0-3.62 1.8-3.62 5.25s1.38 5.25 3.62 5.25c2.25 0 3.63-1.8 3.63-5.25m5.53 0c0 5.8-3 9.4-7.7 9.4a6.6 6.6 0 0 1-5.12-2.32h-.07v1.76h-5.52V.58h5.52v8.78h.07a6.6 6.6 0 0 1 5.11-2.32c4.7 0 7.7 3.6 7.7 9.4z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M115.68 20.06c0 3.73-2.83 5.77-7.74 5.77-6.32 0-8.73-2.83-8.9-6.42h5.17c.18 1.76 1.35 2.62 3.53 2.62 1.55 0 2.42-.51 2.42-1.52 0-1.52-1.66-1.72-4.46-2.35-3-.65-6.32-1.76-6.32-5.45 0-3.21 2.76-5.67 7.74-5.67 5.66 0 7.87 2.87 8.04 5.98h-5.18c-.17-1.42-.93-2.18-2.73-2.18-1.55 0-2.34.55-2.34 1.42 0 1.24 1.1 1.28 3.83 1.86 3.49.76 6.94 1.94 6.94 5.94" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M27.26 14.54h7.2c0-2.46-1.48-3.7-3.6-3.7-2.11 0-3.6 1.24-3.6 3.7m6.97 5.41h5.5c-.96 3.57-3.74 5.93-8.55 5.93-5.9 0-9.47-3.88-9.47-9.43 0-5.4 3.5-9.43 9.15-9.43 6.07 0 9.15 4.44 9.15 10.89H27.26c0 2.5 1.84 3.8 3.81 3.8 1.9 0 2.8-.9 3.16-1.76" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M52.87 3c0-1.6 1.21-2.46 2.77-2.46s2.77.87 2.77 2.46c0 1.63-1.2 2.46-2.77 2.46-1.56 0-2.77-.83-2.77-2.46" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M47.75 16.2 45.1 7.57h-5.54l5.73 15.03s1.33-3.1 2.47-6.42z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="m52.55 7.58-2.22 7.68c-.54 2.2-2.4 9.13-5.03 11.18-.64.7-1.8.83-3.19.51h-.07v4.16c1.15.24 2.15.35 3.09.35 3.74 0 5.4-1.25 6.93-5.79l6.03-18.1h-5.54z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M5.57.59v9.67h8.39V.59h5.53v24.7h-5.53v-9.95H5.57v9.95H.04V.59z" clip-rule="evenodd"/>
+    </svg>
+    <div class="nav-icons">
+      <div class="nav-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="nav-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="job-title-section">
+      <div class="job-title">Pflegefachkraft (m/w/d)</div>
+    </div>
+    <div class="company-section">
+      <div class="company-row">
+        <div class="company-logo">
+          <img src="https://res.cloudinary.com/heyjobs/image/upload/v1780564183/marketing/placeholder_Logo.png" alt="go">
         </div>
+        <div class="company-info">
+          <div class="company-name">go Soziales Netz GmbH</div>
+          <div class="verified-badge">
+            <svg viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.707 7.707a1 1 0 0 0-1.414-1.414L10 13.586l-2.293-2.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l6-6z" fill="#0A7749"/></svg>
+            <span class="verified-text">HeyJobs-geprüft</span>
+          </div>
+        </div>
+      </div>
+      <div class="location-row">
+        <div class="location-item">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#313545"/></svg>
+          <span class="location-text">13086 Berlin</span>
+        </div>
+        <div class="badge-green">Teilweise Homeoffice</div>
+      </div>
+    </div>
+    <div class="details-section">
+      <div class="detail-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#313545" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span class="detail-text">Vollzeit</span></div>
+      <div class="detail-row"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#313545" stroke-width="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z" stroke="#313545" stroke-width="2"/><line x1="8" y1="12" x2="16" y2="12" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span class="detail-text">2.800 € /Monat + Provision</span></div>
+      <div class="detail-row"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span class="detail-text">Flexible Arbeitszeiten</span></div>
+      <div class="detail-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#313545" stroke-width="2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span class="detail-text">Tagesschicht</span></div>
+      <div class="detail-row"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#313545" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="#313545" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#313545" stroke-width="2" stroke-linecap="round"/></svg><span class="detail-text">Offen für Quereinsteiger</span></div>
+      <div class="detail-row"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#313545" stroke-width="2"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z" stroke="#313545" stroke-width="2"/></svg><span class="detail-text">Keine Arbeitserfahrung nötig</span></div>
+    </div>
+  </div>
+
+  <div class="bottom-area">
+    <div class="bottom-nav">
+      <button class="btn-save"><span class="btn-save-label">Speichern</span></button>
+      <button class="btn-apply"><span class="btn-apply-label">Jetzt bewerben</span></button>
+    </div>
+    <div class="no-cv-bar"><span class="no-cv-text">No CV required</span></div>
+  </div>
+</div></div>
+        </div>
+
         <div class="screen-slide" id="s2">
-          <iframe src="screen_3.html" scrolling="no"></iframe>
+          <div id="screen3"><div class="screen">
+  <div class="nav">
+    <svg class="nav-logo" viewBox="0 0 116 32" fill="none">
+      <path fill="#D02879" fill-rule="evenodd" d="M67.47 21.69c2.42 0 3.9-1.83 3.9-5.25s-1.48-5.25-3.9-5.25c-2.45 0-3.94 1.83-3.94 5.25s1.49 5.25 3.94 5.25m0 4.14c-5.9 0-9.46-3.9-9.46-9.4 0-5.48 3.55-9.39 9.46-9.39 5.87 0 9.43 3.9 9.43 9.4 0 5.49-3.56 9.4-9.43 9.4z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M91.94 16.44c0-3.46-1.38-5.25-3.63-5.25-2.24 0-3.62 1.8-3.62 5.25s1.38 5.25 3.62 5.25c2.25 0 3.63-1.8 3.63-5.25m5.53 0c0 5.8-3 9.4-7.7 9.4a6.6 6.6 0 0 1-5.12-2.32h-.07v1.76h-5.52V.58h5.52v8.78h.07a6.6 6.6 0 0 1 5.11-2.32c4.7 0 7.7 3.6 7.7 9.4z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M115.68 20.06c0 3.73-2.83 5.77-7.74 5.77-6.32 0-8.73-2.83-8.9-6.42h5.17c.18 1.76 1.35 2.62 3.53 2.62 1.55 0 2.42-.51 2.42-1.52 0-1.52-1.66-1.72-4.46-2.35-3-.65-6.32-1.76-6.32-5.45 0-3.21 2.76-5.67 7.74-5.67 5.66 0 7.87 2.87 8.04 5.98h-5.18c-.17-1.42-.93-2.18-2.73-2.18-1.55 0-2.34.55-2.34 1.42 0 1.24 1.1 1.28 3.83 1.86 3.49.76 6.94 1.94 6.94 5.94" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M27.26 14.54h7.2c0-2.46-1.48-3.7-3.6-3.7-2.11 0-3.6 1.24-3.6 3.7m6.97 5.41h5.5c-.96 3.57-3.74 5.93-8.55 5.93-5.9 0-9.47-3.88-9.47-9.43 0-5.4 3.5-9.43 9.15-9.43 6.07 0 9.15 4.44 9.15 10.89H27.26c0 2.5 1.84 3.8 3.81 3.8 1.9 0 2.8-.9 3.16-1.76" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M52.87 3c0-1.6 1.21-2.46 2.77-2.46s2.77.87 2.77 2.46c0 1.63-1.2 2.46-2.77 2.46-1.56 0-2.77-.83-2.77-2.46" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M47.75 16.2 45.1 7.57h-5.54l5.73 15.03s1.33-3.1 2.47-6.42z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="m52.55 7.58-2.22 7.68c-.54 2.2-2.4 9.13-5.03 11.18-.64.7-1.8.83-3.19.51h-.07v4.16c1.15.24 2.15.35 3.09.35 3.74 0 5.4-1.25 6.93-5.79l6.03-18.1h-5.54z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M5.57.59v9.67h8.39V.59h5.53v24.7h-5.53v-9.95H5.57v9.95H.04V.59z" clip-rule="evenodd"/>
+    </svg>
+    <div class="nav-icons">
+      <div class="nav-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="nav-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div>
+      <div class="email-intro">Gute Neuigkeiten:</div>
+      <div class="email-title">Sie haben einen neuen Kandidaten.</div>
+    </div>
+    <div class="candidate-block">
+      <div class="candidate-name">Salvador Domingo Felipe Jacinto Dalí</div>
+      <div class="applied-as">hat sich beworben als</div>
+      <div class="job-title-row">Pflegefachkraft (m/w/d)</div>
+      <div class="tags-row">
+        <div class="tag-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5s4.5-5 4.5-8.5C12.5 3.5 10.5 1.5 8 1.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#757575"/></svg>
+          <span class="tag-text">Berlin</span>
+        </div>
+        <div class="tag-item">
+          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#757575" stroke-width="1.3"/><path d="M8 5v3.5l2 1.5" stroke="#757575" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span class="tag-text">Vollzeit</span>
+        </div>
+        <div class="tag-item"><span class="tag-text">Job ID: 6545 8256 A</span></div>
+      </div>
+    </div>
+
+    <div class="banner-profile">
+      <div class="cv-icon"><svg width="54" height="70" viewBox="0 0 54 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.3578 65.4033L3.10947 18.625C2.86972 17.2652 3.77764 15.9686 5.13737 15.7288L40.463 9.49995C41.8228 9.26019 43.1194 10.1681 43.3592 11.5278L50.5656 52.3973L51.6074 58.3062C51.8472 59.6659 50.9393 60.9626 49.5795 61.2023L14.2539 67.4312C12.8942 67.6709 11.5975 66.763 11.3578 65.4033Z" fill="white" stroke="#181A22" stroke-width="1.91" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.0337 25.608C28.1354 37.5271 10.2567 40.6796 8.15505 28.7605C6.05339 16.8414 23.932 13.6889 26.0337 25.608Z" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<path d="M22.017 31.7808C21.9053 31.1478 20.6326 30.0669 19.1632 30.326C17.6939 30.5851 17.6939 30.5851 16.2245 30.8442C14.7552 31.1033 13.9289 32.5543 14.0405 33.1872" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<path d="M13.6182 25.2594C14.3173 29.2243 20.2646 28.1755 19.5654 24.2108C18.8662 20.2461 12.9191 21.2946 13.6182 25.2594Z" fill="url(#paint0_linear_0_5614)" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<rect width="27.6611" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 40.7977 48.391)" fill="#181A22"/>
+<rect width="32.545" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 44.566 41.6336)" fill="#181A22"/>
+<rect width="18.1647" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 29.3619 38.2215)" fill="#181A22"/>
+<rect width="32.545" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 46.6495 53.451)" fill="#181A22"/>
+<path d="M37.8669 10.6786C38.5788 17.8229 39.808 23.2296 36.2358 23.5855C32.6636 23.9415 26.5809 17.2751 25.869 10.1308C26.4355 3.65557 28.4279 3.82988 31.5036 3.09494C35.0758 2.739 37.155 3.53428 37.8669 10.6786Z" fill="white"/>
+<path d="M26.9079 8.87702C26.9079 8.87702 27.0236 9.53356 26.821 8.38461C26.6184 7.23567 27.5168 3.69251 30.9637 3.08474C34.4105 2.47697 36.3218 4.67852 36.6691 6.64813C37.0164 8.61774 38.9265 19.4506 38.9265 19.4506C39.1291 20.5996 38.8449 23.019 36.0875 23.5052C33.33 23.9914 32.2355 21.8151 32.0329 20.6662L30.2096 10.3257C30.2579 9.64021 30.3547 8.26925 31.8319 8.00878C33.3091 7.7483 34.0909 9.30283 34.1488 9.6311L35.7116 18.4944" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<defs>
+<linearGradient id="paint0_linear_0_5614" x1="19.0411" y1="21.2372" x2="12.3216" y2="24.7437" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D02879"/>
+<stop offset="0.5" stop-color="#F16247"/>
+<stop offset="1" stop-color="#F5B100"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+      <div class="banner-profile-content">
+        <div class="banner-title">Kandidatenprofil: Jetzt im Anhang prüfen</div>
+      </div>
+    </div>
+
+    <div class="banner-ha">
+      <div class="banner-ha-content">
+        <div class="banner-ha-title">HeyAssessment: Jetzt aktivieren</div>
+        <div class="banner-ha-text">Mit HeyAssessment sammeln wir so viele zusätzliche relevante Daten von Ihren Kandidaten wie möglich, damit Sie Bewerbungen in kürzester Zeit prüfen und vergleichen können. Es ist verfügbar für alle Ihre HIRE- und REACH-Jobs.</div>
+        <div class="banner-ha-cta">Jetzt aktivieren →</div>
+      </div>
+    </div>
+  </div>
+</div></div>
         </div>
 
         <div class="dots">
