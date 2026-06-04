@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff') format('woff');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff') format('woff');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Medium.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Medium.woff') format('woff');
+  font-weight: 500; font-style: normal;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 393px; height: 852px;
+  overflow: hidden; background: #fff;
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+}
+.screen { position: relative; width: 393px; height: 852px; overflow: hidden; background: #fff; }
+
+/* Header */
+.header {
+  position: absolute; width: 393px; height: 72px; left: 0; top: 0;
+  background: #fff; z-index: 10;
+  display: flex; align-items: center; padding: 0 12px; gap: 8px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.08);
+}
+.avatar-wrap { position: relative; width: 34px; height: 34px; flex-shrink: 0; }
+.avatar-ring {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  display: flex; align-items: center; justify-content: center;
+}
+.avatar-inner {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #F5B100;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.avatar-inner img { width: 22px; height: 22px; }
+
+.header-info { flex: 1; }
+.header-username {
+  font-weight: 600; font-size: 10.5px; line-height: 14px;
+  letter-spacing: -0.085px; color: #262626;
+  display: flex; align-items: center; gap: 3px;
+}
+.verified { color: #3897F0; font-size: 10px; }
+.header-location { font-size: 9.37px; line-height: 12px; color: #8e8e8e; }
+.more-icon { display: flex; gap: 3.5px; align-items: center; }
+.more-dot { width: 3.5px; height: 3.5px; background: #262626; border-radius: 50%; }
+
+/* Photo */
+.photo {
+  position: absolute;
+  width: 400px; height: 500px;
+  left: calc(50% - 200px); top: 74.54px;
+  object-fit: cover; object-position: center top;
+}
+
+/* Job card */
+.job-card {
+  position: absolute;
+  width: 350.05px; height: 128.93px;
+  left: calc(50% - 175.025px - 2.5px); top: 411.28px;
+  background: #fff; border-radius: 9.47px;
+  padding: 14px 14px 14px 14px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  z-index: 5;
+}
+.job-title {
+  font-family: 'ES Rebond Grotesque', 'IBM Plex Sans', sans-serif;
+  font-weight: 700; font-size: 28px; line-height: 120%;
+  color: #181A22; width: 213px;
+}
+.job-location {
+  position: absolute; left: 14px; bottom: 14px;
+  display: flex; align-items: center; gap: 4px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500; font-size: 13.71px; color: #181A22;
+}
+.go-logo-wrap {
+  width: 97.24px; height: 97.24px;
+  background: #fff; border-radius: 3.24px;
+  box-shadow: 1.08px 1.08px 3.6px rgba(0,0,0,0.2);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.go-logo-wrap img { width: 70.74px; height: 71.26px; object-fit: contain; }
+
+/* Bottom bar */
+.bottom-bar {
+  position: absolute; width: 421px; height: 159.54px;
+  left: -20.28px; top: 574.54px; background: #fff; z-index: 4;
+}
+
+/* Actions */
+.actions {
+  position: absolute; left: 27.62px; top: 591.45px;
+  display: flex; align-items: center; gap: 16px; z-index: 5;
+}
+.actions svg { width: 20px; height: 20px; fill: none; stroke: #262626; stroke-width: 1.5; }
+.save-icon { position: absolute; right: 27.62px; top: 590.75px; z-index: 5; }
+.save-icon svg { width: 18px; height: 20px; fill: none; stroke: #262626; stroke-width: 1.5; }
+
+/* Likes */
+.likes {
+  position: absolute; left: 27.62px; top: 626.05px; z-index: 5;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.07px; color: #262626; line-height: 15px;
+}
+.likes-avatar {
+  width: 14.77px; height: 14.77px; border-radius: 50%;
+  overflow: hidden; flex-shrink: 0; background: #F5B100;
+  display: flex; align-items: center; justify-content: center;
+}
+.likes-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* Caption */
+.caption {
+  position: absolute; left: 27.62px; right: 37.67px; top: 649px; z-index: 5;
+  font-size: 11.07px; line-height: 15px; letter-spacing: -0.085px; color: #262626;
+}
+.caption strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="header">
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <img src="favicon.svg" alt="HeyJobs">
+        </div>
+      </div>
+    </div>
+    <div class="header-info">
+      <div class="header-username">
+        heyjobsofficial
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#3897F0"/><path d="M3.5 6l1.8 1.8L8.5 4.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="header-location">Berlin, Germany</div>
+    </div>
+    <div class="more-icon">
+      <div class="more-dot"></div><div class="more-dot"></div><div class="more-dot"></div>
+    </div>
+  </div>
+
+  <img class="photo" src="https://res.cloudinary.com/heyjobs/image/upload/v1779625212/marketing/heyjobsgenai__ID_1312_ID__Kinderkrankenschwester-pfleger__Q2__7dbbb613-e415-4b1d-9e26-1eb73d875b99_3_1.png" alt="">
+
+  <div class="job-card">
+    <div>
+      <div class="job-title">Pflegefachkraft<br>(m/w/d)</div>
+      <div class="job-location">
+        <svg width="9.55" height="13.71" viewBox="0 0 10 14" fill="#181A22"><path d="M5 0C2.24 0 0 2.24 0 5c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5S4.17 3.5 5 3.5 6.5 4.17 6.5 5 5.83 6.5 5 6.5z"/></svg>
+        Berlin
+      </div>
+    </div>
+    <div class="go-logo-wrap">
+      <img src="https://res.cloudinary.com/heyjobs/image/upload/v1780564183/marketing/placeholder_Logo.png" alt="go">
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+
+  <div class="actions">
+    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+  </div>
+  <div class="save-icon">
+    <svg viewBox="0 0 18 20"><path d="M17 19l-8-5-8 5V3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg>
+  </div>
+
+  <div class="likes">
+    <div class="likes-avatar">
+      <img src="favicon.svg" alt="">
+    </div>
+    Liked by <strong style="margin:0 2px;">marius_lu</strong> and <strong style="margin-left:2px;">44,686 others</strong>
+  </div>
+
+  <div class="caption">
+    <strong>heyjobsofficial</strong> Wir suchen engagierte MitarbeiterInnen für den Einsatz als Pflegefachkraft (m/w/d) bei go Soziales Netz GmbH in Berlin. Kein Lebenslauf benötigt.
+  </div>
+</div>
+</body>
+</html>

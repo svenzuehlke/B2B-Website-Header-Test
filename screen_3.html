@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Bold.woff') format('woff');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'ES Rebond Grotesque';
+  src: url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff2') format('woff2'),
+       url('https://raw.githubusercontent.com/svenzuehlke/B2B-Website-Header-Test/7cd5ce5bbd4f45a8e296631cdceaf7cbab2bc903/ES-Rebond-Grotesque_Essential/ESRebondGrotesque-Regular.woff') format('woff');
+  font-weight: 400; font-style: normal;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 393px; height: 852px; overflow: hidden; background: #fff; font-family: 'IBM Plex Sans', sans-serif; }
+.screen { position: relative; width: 393px; height: 852px; overflow: hidden; background: #fff; }
+
+/* Nav — same as screen 2 */
+.nav { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 16px 24px 12px; position: absolute; width: 393px; height: 72px; left: 0; top: 0; background: #fff; z-index: 10; box-shadow: 0px 2px 4px rgba(76,82,107,0.06), 0px 2px 4px rgba(24,26,34,0.04), 0px -2px 4px rgba(76,82,107,0.04); }
+.nav-logo { width: 116px; height: 36px; }
+.nav-icons { display: flex; align-items: center; gap: 16px; }
+.nav-icon-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+.nav-icon-btn svg { width: 24px; height: 24px; }
+
+/* Content */
+.content { position: absolute; left: 0; top: 72px; width: 393px; height: 780px; overflow: hidden; display: flex; flex-direction: column; padding: 16px 16px 40px; gap: 24px; background: #fff; }
+
+.email-intro { font-family: 'ES Rebond Grotesque', sans-serif; font-weight: 700; font-size: 26px; line-height: 25px; letter-spacing: 0.2px; color: #202020; }
+.email-title { font-family: 'ES Rebond Grotesque', sans-serif; font-weight: 400; font-size: 26px; line-height: 36px; letter-spacing: 0.2px; color: #202020; margin-top: 8px; }
+
+.candidate-block { display: flex; flex-direction: column; gap: 4px; }
+.candidate-name { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 18px; line-height: 150%; letter-spacing: 0.002em; color: #202020; }
+.applied-as { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 150%; letter-spacing: 0.002em; color: #202020; }
+.job-title-row { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 16px; line-height: 150%; letter-spacing: 0.1px; color: #202020; }
+.tags-row { display: flex; flex-wrap: wrap; gap: 2px 16px; margin-top: 4px; }
+.tag-item { display: flex; align-items: center; gap: 4px; height: 23px; }
+.tag-item svg { width: 16px; height: 16px; }
+.tag-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 14px; line-height: 166%; letter-spacing: 0.4px; color: #202020; }
+
+.banner-profile { display: flex; flex-direction: row; align-items: center; padding: 16px 24px; gap: 24px; width: 361px; min-height: 101px; background: #FFF3D6; border-radius: 8px; }
+.cv-icon { width: 54px; height: 70px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+
+
+
+
+
+
+
+
+.banner-profile-content { display: flex; flex-direction: column; gap: 8px; }
+.banner-title { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 20px; line-height: 150%; letter-spacing: 0.2px; color: #212121; }
+
+.banner-ha { display: flex; flex-direction: row; align-items: flex-start; padding: 16px 24px; gap: 32px; width: 361px; background: #FFF3D6; border-radius: 8px; }
+.banner-ha-content { display: flex; flex-direction: column; gap: 8px; }
+.banner-ha-title { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 20px; line-height: 150%; letter-spacing: 0.2px; color: #212121; }
+.banner-ha-text { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 143%; letter-spacing: 0.17px; color: #212121; }
+.banner-ha-cta { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 16px; line-height: 24px; letter-spacing: 0.002em; color: #D02879; margin-top: 8px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="screen">
+  <div class="nav">
+    <svg class="nav-logo" viewBox="0 0 116 32" fill="none">
+      <path fill="#D02879" fill-rule="evenodd" d="M67.47 21.69c2.42 0 3.9-1.83 3.9-5.25s-1.48-5.25-3.9-5.25c-2.45 0-3.94 1.83-3.94 5.25s1.49 5.25 3.94 5.25m0 4.14c-5.9 0-9.46-3.9-9.46-9.4 0-5.48 3.55-9.39 9.46-9.39 5.87 0 9.43 3.9 9.43 9.4 0 5.49-3.56 9.4-9.43 9.4z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M91.94 16.44c0-3.46-1.38-5.25-3.63-5.25-2.24 0-3.62 1.8-3.62 5.25s1.38 5.25 3.62 5.25c2.25 0 3.63-1.8 3.63-5.25m5.53 0c0 5.8-3 9.4-7.7 9.4a6.6 6.6 0 0 1-5.12-2.32h-.07v1.76h-5.52V.58h5.52v8.78h.07a6.6 6.6 0 0 1 5.11-2.32c4.7 0 7.7 3.6 7.7 9.4z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M115.68 20.06c0 3.73-2.83 5.77-7.74 5.77-6.32 0-8.73-2.83-8.9-6.42h5.17c.18 1.76 1.35 2.62 3.53 2.62 1.55 0 2.42-.51 2.42-1.52 0-1.52-1.66-1.72-4.46-2.35-3-.65-6.32-1.76-6.32-5.45 0-3.21 2.76-5.67 7.74-5.67 5.66 0 7.87 2.87 8.04 5.98h-5.18c-.17-1.42-.93-2.18-2.73-2.18-1.55 0-2.34.55-2.34 1.42 0 1.24 1.1 1.28 3.83 1.86 3.49.76 6.94 1.94 6.94 5.94" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M27.26 14.54h7.2c0-2.46-1.48-3.7-3.6-3.7-2.11 0-3.6 1.24-3.6 3.7m6.97 5.41h5.5c-.96 3.57-3.74 5.93-8.55 5.93-5.9 0-9.47-3.88-9.47-9.43 0-5.4 3.5-9.43 9.15-9.43 6.07 0 9.15 4.44 9.15 10.89H27.26c0 2.5 1.84 3.8 3.81 3.8 1.9 0 2.8-.9 3.16-1.76" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="M52.87 3c0-1.6 1.21-2.46 2.77-2.46s2.77.87 2.77 2.46c0 1.63-1.2 2.46-2.77 2.46-1.56 0-2.77-.83-2.77-2.46" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M47.75 16.2 45.1 7.57h-5.54l5.73 15.03s1.33-3.1 2.47-6.42z" clip-rule="evenodd"/><path fill="#D02879" fill-rule="evenodd" d="m52.55 7.58-2.22 7.68c-.54 2.2-2.4 9.13-5.03 11.18-.64.7-1.8.83-3.19.51h-.07v4.16c1.15.24 2.15.35 3.09.35 3.74 0 5.4-1.25 6.93-5.79l6.03-18.1h-5.54z" clip-rule="evenodd"/><path fill="#F5B100" fill-rule="evenodd" d="M5.57.59v9.67h8.39V.59h5.53v24.7h-5.53v-9.95H5.57v9.95H.04V.59z" clip-rule="evenodd"/>
+    </svg>
+    <div class="nav-icons">
+      <div class="nav-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="nav-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="#4C526B" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div>
+      <div class="email-intro">Gute Neuigkeiten:</div>
+      <div class="email-title">Sie haben einen neuen Kandidaten.</div>
+    </div>
+    <div class="candidate-block">
+      <div class="candidate-name">Salvador Domingo Felipe Jacinto Dalí</div>
+      <div class="applied-as">hat sich beworben als</div>
+      <div class="job-title-row">Pflegefachkraft (m/w/d)</div>
+      <div class="tags-row">
+        <div class="tag-item">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5s4.5-5 4.5-8.5C12.5 3.5 10.5 1.5 8 1.5zm0 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#757575"/></svg>
+          <span class="tag-text">Berlin</span>
+        </div>
+        <div class="tag-item">
+          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#757575" stroke-width="1.3"/><path d="M8 5v3.5l2 1.5" stroke="#757575" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span class="tag-text">Vollzeit</span>
+        </div>
+        <div class="tag-item"><span class="tag-text">Job ID: 6545 8256 A</span></div>
+      </div>
+    </div>
+
+    <div class="banner-profile">
+      <div class="cv-icon"><svg width="54" height="70" viewBox="0 0 54 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.3578 65.4033L3.10947 18.625C2.86972 17.2652 3.77764 15.9686 5.13737 15.7288L40.463 9.49995C41.8228 9.26019 43.1194 10.1681 43.3592 11.5278L50.5656 52.3973L51.6074 58.3062C51.8472 59.6659 50.9393 60.9626 49.5795 61.2023L14.2539 67.4312C12.8942 67.6709 11.5975 66.763 11.3578 65.4033Z" fill="white" stroke="#181A22" stroke-width="1.91" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.0337 25.608C28.1354 37.5271 10.2567 40.6796 8.15505 28.7605C6.05339 16.8414 23.932 13.6889 26.0337 25.608Z" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<path d="M22.017 31.7808C21.9053 31.1478 20.6326 30.0669 19.1632 30.326C17.6939 30.5851 17.6939 30.5851 16.2245 30.8442C14.7552 31.1033 13.9289 32.5543 14.0405 33.1872" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<path d="M13.6182 25.2594C14.3173 29.2243 20.2646 28.1755 19.5654 24.2108C18.8662 20.2461 12.9191 21.2946 13.6182 25.2594Z" fill="url(#paint0_linear_0_5614)" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<rect width="27.6611" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 40.7977 48.391)" fill="#181A22"/>
+<rect width="32.545" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 44.566 41.6336)" fill="#181A22"/>
+<rect width="18.1647" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 29.3619 38.2215)" fill="#181A22"/>
+<rect width="32.545" height="1.91" rx="0.955" transform="matrix(-0.984808 0.173648 0.173648 0.984808 46.6495 53.451)" fill="#181A22"/>
+<path d="M37.8669 10.6786C38.5788 17.8229 39.808 23.2296 36.2358 23.5855C32.6636 23.9415 26.5809 17.2751 25.869 10.1308C26.4355 3.65557 28.4279 3.82988 31.5036 3.09494C35.0758 2.739 37.155 3.53428 37.8669 10.6786Z" fill="white"/>
+<path d="M26.9079 8.87702C26.9079 8.87702 27.0236 9.53356 26.821 8.38461C26.6184 7.23567 27.5168 3.69251 30.9637 3.08474C34.4105 2.47697 36.3218 4.67852 36.6691 6.64813C37.0164 8.61774 38.9265 19.4506 38.9265 19.4506C39.1291 20.5996 38.8449 23.019 36.0875 23.5052C33.33 23.9914 32.2355 21.8151 32.0329 20.6662L30.2096 10.3257C30.2579 9.64021 30.3547 8.26925 31.8319 8.00878C33.3091 7.7483 34.0909 9.30283 34.1488 9.6311L35.7116 18.4944" stroke="#181A22" stroke-width="1.91" stroke-linecap="round"/>
+<defs>
+<linearGradient id="paint0_linear_0_5614" x1="19.0411" y1="21.2372" x2="12.3216" y2="24.7437" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D02879"/>
+<stop offset="0.5" stop-color="#F16247"/>
+<stop offset="1" stop-color="#F5B100"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+      <div class="banner-profile-content">
+        <div class="banner-title">Kandidatenprofil: Jetzt im Anhang prüfen</div>
+      </div>
+    </div>
+
+    <div class="banner-ha">
+      <div class="banner-ha-content">
+        <div class="banner-ha-title">HeyAssessment: Jetzt aktivieren</div>
+        <div class="banner-ha-text">Mit HeyAssessment sammeln wir so viele zusätzliche relevante Daten von Ihren Kandidaten wie möglich, damit Sie Bewerbungen in kürzester Zeit prüfen und vergleichen können. Es ist verfügbar für alle Ihre HIRE- und REACH-Jobs.</div>
+        <div class="banner-ha-cta">Jetzt aktivieren →</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
