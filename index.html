@@ -22,9 +22,9 @@ body { background: transparent; }
 
 .flyout { position: absolute; z-index: 10; }
 .flyout img { display: block; }
-.flyout-right { left: 482px; top: 80px; width: 424px; animation: fl2 5.8s ease-in-out infinite; }
+.flyout-right { left: 482px; top: 80px; width: 424px; opacity:0; animation: flyInR 0.6s cubic-bezier(0.22,1,0.36,1) 0.8s forwards, fl2 5.8s ease-in-out 1.6s infinite; }
 .flyout-right img { width: 100%; }
-.flyout-left { left: 80px; top: 315px; width: 343px; animation: fl1 5.2s ease-in-out infinite; }
+.flyout-left { left: 80px; top: 315px; width: 343px; opacity:0; animation: flyInL 0.6s cubic-bezier(0.22,1,0.36,1) 0.4s forwards, fl1 5.2s ease-in-out 1.2s infinite; }
 .flyout-left img { width: 100%; }
 @keyframes fl1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
 @keyframes fl2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
@@ -216,9 +216,27 @@ let cur=0;
 function goTo(idx){slides[cur].classList.remove('active');slides[cur].style.display='none';cur=idx;slides[cur].classList.add('active');slides[cur].style.display='block';}
 
 setInterval(()=>goTo((cur+1)%3),4000);
-let mx=0,my=0,lx=0,ly=0;
-document.addEventListener('mousemove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2;});
-(function loop(){requestAnimationFrame(loop);lx+=(mx-lx)*.06;ly+=(my-ly)*.06;phoneWrap.style.transform=`translate(${lx*8}px,${ly*5}px)`;f1.style.transform=`translateY(0) translate(${lx*22}px,${ly*14}px)`;f2.style.transform=`translateY(0) translate(${lx*30}px,${ly*18}px)`;})();
+let mx=0,my=0;
+let px1=0,py1=0; // phone
+let px2=0,py2=0; // flyout left
+let px3=0,py3=0; // flyout right
+
+document.addEventListener('mousemove',e=>{
+  mx=(e.clientX/innerWidth-.5)*2;
+  my=(e.clientY/innerHeight-.5)*2;
+});
+
+(function loop(){
+  requestAnimationFrame(loop);
+  // Each layer has its own lerp speed — different feel
+  px1+=(mx-px1)*0.06; py1+=(my-py1)*0.06;
+  px2+=(mx-px2)*0.04; py2+=(my-py2)*0.04;
+  px3+=(mx-px3)*0.08; py3+=(my-py3)*0.08;
+
+  phoneWrap.style.transform=`translate(${px1*8}px,${py1*5}px)`;
+  f1.style.transform=`translate(${px2*18}px,${py2*12}px)`;
+  f2.style.transform=`translate(${px3*26}px,${py3*16}px)`;
+})();
 slides[0].style.display='block';
 </script>
 </body>
