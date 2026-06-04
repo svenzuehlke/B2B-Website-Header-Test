@@ -22,12 +22,10 @@ body { background: transparent; }
 
 .flyout { position: absolute; z-index: 10; }
 .flyout img { display: block; }
-.flyout-right { left: 482px; top: 80px; width: 424px; opacity:0; animation: flyInR 0.6s cubic-bezier(0.22,1,0.36,1) 0.8s forwards, fl2 5.8s ease-in-out 1.6s infinite; }
+.flyout-right { position: absolute; left: 482px; top: 80px; width: 424px; opacity:0; }
 .flyout-right img { width: 100%; }
-.flyout-left { left: 80px; top: 315px; width: 343px; opacity:0; animation: flyInL 0.6s cubic-bezier(0.22,1,0.36,1) 0.4s forwards, fl1 5.2s ease-in-out 1.2s infinite; }
-.flyout-left img { width: 100%; }
-@keyframes fl1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-@keyframes fl2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+.flyout-left { position: absolute; left: 80px; top: 315px; width: 343px; opacity:0; }
+.flyout-left img { width: 100%; } 50%{transform:translateY(-12px)} } 50%{transform:translateY(-14px)} }
 </style>
 </head>
 <body>
@@ -217,25 +215,49 @@ function goTo(idx){slides[cur].classList.remove('active');slides[cur].style.disp
 
 setInterval(()=>goTo((cur+1)%3),4000);
 let mx=0,my=0;
-let px1=0,py1=0; // phone
-let px2=0,py2=0; // flyout left
-let px3=0,py3=0; // flyout right
+let px1=0,py1=0,px2=0,py2=0,px3=0,py3=0;
+// Float offsets (sine waves, different speeds/phases)
+const startTime = performance.now();
+// Intro state
+let introF1Done = false, introF2Done = false;
+const INTRO_F1 = 500;  // ms delay flyout-left
+const INTRO_F2 = 900;  // ms delay flyout-right
+const INTRO_DUR = 600; // ms duration
 
 document.addEventListener('mousemove',e=>{
   mx=(e.clientX/innerWidth-.5)*2;
   my=(e.clientY/innerHeight-.5)*2;
 });
 
-(function loop(){
+(function loop(now){
   requestAnimationFrame(loop);
-  // Each layer has its own lerp speed — different feel
+  const elapsed = now - startTime;
+
+  // Lerp per element
   px1+=(mx-px1)*0.06; py1+=(my-py1)*0.06;
   px2+=(mx-px2)*0.04; py2+=(my-py2)*0.04;
   px3+=(mx-px3)*0.08; py3+=(my-py3)*0.08;
 
+  // Float offsets
+  const floatF1 = Math.sin(elapsed * 0.0011) * 11;
+  const floatF2 = Math.sin(elapsed * 0.0009 + 1.2) * 13;
+
+  // Phone parallax
   phoneWrap.style.transform=`translate(${px1*8}px,${py1*5}px)`;
-  f1.style.transform=`translate(${px2*18}px,${py2*12}px)`;
-  f2.style.transform=`translate(${px3*26}px,${py3*16}px)`;
+
+  // Flyout left intro + float + parallax
+  const t1 = Math.min(Math.max((elapsed - INTRO_F1) / INTRO_DUR, 0), 1);
+  const ease1 = t1 < 1 ? 1 - Math.pow(1 - t1, 3) : 1;
+  const introY1 = (1 - ease1) * 40;
+  f1.style.opacity = ease1;
+  f1.style.transform=`translate(${px2*18}px,${py2*12 + floatF1 + introY1}px)`;
+
+  // Flyout right intro + float + parallax
+  const t2 = Math.min(Math.max((elapsed - INTRO_F2) / INTRO_DUR, 0), 1);
+  const ease2 = t2 < 1 ? 1 - Math.pow(1 - t2, 3) : 1;
+  const introY2 = (1 - ease2) * 40;
+  f2.style.opacity = ease2;
+  f2.style.transform=`translate(${px3*26}px,${py3*16 + floatF2 + introY2}px)`;
 })();
 slides[0].style.display='block';
 </script>
